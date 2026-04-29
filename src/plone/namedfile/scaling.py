@@ -607,9 +607,9 @@ class ImageScaling(BrowserView):
             field = getattr(context, fieldname, None)
             modified = getattr(field, "modified", None)
             try:
-                mtime = DateTime(modified or context._p_mtime)
+                mtime = modified or context._p_mtime
             except:
-                mtime = DateTime(modified() or context._p_mtime)
+                mtime = modified() or context._p_mtime
         else:
             mtime = context._p_mtime
         # _p_mtime is None for unsaved objects (common in tests).
